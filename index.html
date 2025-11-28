@@ -81,14 +81,30 @@
         gap: 2%;
         /* flex-wrap: wrap; */
       }
+      /* INITIAL — fully transparent navbar */
+#navbar {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
+}
+
+/* WHEN SCROLLED — glassmorphism effect */
+#navbar.scrolled {
+  background: rgba(0, 0, 0, 0.35);         /* slight dark */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
 
       .nav-button {
         background: transparent;
         color: #fffefe;
         border: 3px solid #ff6b35;
-        padding: 8px 20px;
+        padding: 8px 15px;
         font-size: 18px;
-        font-weight: 500;
+        font-weight: 600;
         border-radius: 50px;
         cursor: pointer;
         text-transform: uppercase;
@@ -316,15 +332,29 @@
           .features-wrapper {
   width: 100%;
   padding: 6% 8%;
-
+ height: auto !important;     
+  min-height: auto !important;
 
   background-image: url("./why.jpg");
   background-size: cover;        /* makes image fill full area */
   background-position: center;   /* centers image */
   background-repeat: no-repeat;  /* prevents repeating */
 }
+/* Mobile View */
+@media (max-width: 768px) {
+  .features-grid {
+    height: 310vh;  /* Increase or decrease as needed */
+    
+  }
+}
 
-      .features-grid {
+/* Extra Small Devices */
+@media (max-width: 480px) {
+  .features-grid {
+    min-height: 140vh;
+  }
+}
+    .features-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 4%;
@@ -611,68 +641,49 @@
   <body>
     <div class="page-container">
       <!-- Sticky Navigation -->
-      <!--<nav class="sticky-nav">
-        <div class="nav-content">
-          <div class="brand-logo">
-            <div class="logo-icon"></div>
-            <div class="brand-name">
-              <img src="./logo.png" width="24%" />
-            </div>
-          </div>
-          <div class="nav-links">
-            <button class="nav-button active" onclick="scrollToSection('hero')">
-              HOME
-            </button>
-            <button class="nav-button" onclick="scrollToSection('about')">
-              ABOUT
-            </button>
-            <button class="nav-button" onclick="scrollToSection('tokenomics')">
-              TOKENOMICS
-            </button>
-            <button class="nav-button" onclick="scrollToSection('features')">
-              FEATURES
-            </button>
-            <button class="nav-button" onclick="scrollToSection('roadmap')">
-              ROADMAP
-            </button>
-          </div>
-        </div>
-      </nav> -->
-      <nav
-      class="fixed top-0 w-full z-50  backdrop-blur-md "
-    >
-      <div class="container mx-auto px-6 py-2">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center">
-            <img
-              src="./logo.png"
-              alt="GI Logo"
-              class="rounded-lg"
-              style="width: 12%"
-            />
-            <!-- <div class="w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-lg flex items-center justify-center">
-                        hjjjh
-                    </div> -->
-          </div>
-          <div class="hidden md:flex space-x-10">
-            <a href="#home" class=" nav-button hover:text-cyan-400 transition-colors"
-              >HOME</a
-            >
-            <a href="#about" class="nav-button hover:text-cyan-400 transition-colors"
-              >ABOUT</a
-            >
-           
-            <a href="#features" class=" nav-button hover:text-cyan-400 transition-colors"
-              >FEATURES</a
-            >
-           
-            <a href="#contact" class=" nav-button hover:text-cyan-400 transition-colors"
-              >CONTACT</a
-            >
-          </div>
-        </div>
+     
+     <nav id="navbar" class="fixed top-0 w-full z-50 backdrop-blur-md bg-black/30">
+  <div class="container mx-auto px-6 py-3">
+    <div class="flex items-center justify-between">
+
+      <!-- LOGO -->
+      <div class="flex items-center">
+        <img
+          src="./logo.png"
+          alt=" Logo"
+          class="rounded-lg w-20 md:w-24 lg:w-32"
+        />
       </div>
-    </nav>
+
+      <!-- DESKTOP MENU -->
+      <div class="hidden md:flex space-x-10">
+        <a href="#home" class="nav-button hover:text-cyan-400 transition">HOME</a>
+        <a href="#about" class="nav-button hover:text-cyan-400 transition">ABOUT</a>
+        <a href="#features" class="nav-button hover:text-cyan-400 transition">FEATURES</a>
+        <a href="#contact" class="nav-button hover:text-cyan-400 transition">CONTACT</a>
+      </div>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button
+        class="md:hidden text-3xl text-white"
+        onclick="toggleMobileMenu()"
+      >
+        ☰
+      </button>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="hidden flex flex-col mt-4 space-y-4 md:hidden">
+      <a href="#home" class="nav-button hover:text-cyan-400 transition">HOME</a>
+      <a href="#about" class="nav-button hover:text-cyan-400 transition">ABOUT</a>
+      <a href="#features" class="nav-button hover:text-cyan-400 transition">FEATURES</a>
+      <a href="#contact" class="nav-button hover:text-cyan-400 transition">CONTACT</a>
+    </div>
+  </div>
+</nav>
+
+
+
       <!-- Hero Section -->
 
     <section class="hero-wrapper" id="hero">
@@ -683,10 +694,16 @@
   </video>
 
   <!-- Content -->
-  <div class="hero-main" style="margin-top: 4%;">
-    <h1 class="main-title">THE STORM IS HERE! ⚡</h1>
-    <p class="subtitle">AI-Powered Meme Coin on BSC Network</p>
-    <button class="cta-main">BUY NOW</button>
+  <div class="hero-main" style="margin-top: 8%;">
+    <h1 class="main-title relative z-10 flex flex-col items-center justify-center h-full text-center px-4  mt-20 sm:mt-0  text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">THE STORM IS HERE! ⚡</h1>
+    <p class="subtitle  text-white mt-4 
+             text-base sm:text-lg md:text-xl lg:text-2xl
+             drop-shadow-md">AI-Powered Meme Coin on BSC Network</p>
+    <button class="cta-main  w-25 mt-6 px-6 py-3 
+             text-white font-semibold rounded-lg
+             bg-gradient-to-r from-cyan-400 to-purple-500
+             hover:scale-110 transition-transform
+             text-sm sm:text-base md:text-lg">BUY NOW</button>
   </div>
 
 </section>
@@ -706,15 +723,13 @@
       </p>
     </div>
 
-    <div class="about-right">
+    <div class="about-right hidden md:block">
       <!-- KEEP EMPTY -->
     </div>
 
   </div>
 </section>
-
-      <!-- Tokenomics Section -->
- 
+  <!-- features Section -->
 
       <section class="features-wrapper" id="features">
         <h2 class="section-white-heading">WHY DOGE STORM?</h2>
@@ -759,10 +774,10 @@
               valuable over time.
             </p>
           </div>
-          <div class="feature-card text-center">
+          <div class="feature-card text-center pb-sm-5">
             <div class="feature-icon">🚀</div>
             <h3 class="feature-title text-white">TO THE MOON</h3>
-            <p class="feature-description text-white">
+            <p class="feature-description text-white ">
               Join the storm and ride the wave to the moon with the strongest
               community in crypto!
             </p>
@@ -788,7 +803,7 @@
           <span class="text-lg font-bold" style="color: white">
             🤔 WHAT IS DOGE STORM?
           </span>
-          <span class="text-2xl" id="icon-0">+</span>
+          <span class="text-2xl text-white" id="icon-0">+</span>
         </button>
         <div class="accordion-content px-6 pb-6" id="content-0">
           <p class="text-gray-100" style="font-size: 22px;">
@@ -808,7 +823,7 @@
           <span class="text-lg font-bold" style="color: white">
             💰 HOW DO I BUY DOGE STORM?
           </span>
-          <span class="text-2xl" id="icon-1">+</span>
+          <span class="text-2xl text-white" id="icon-1">+</span>
         </button>
         <div class="accordion-content px-6 pb-6" id="content-1">
           <p class="text-gray-100" style="font-size: 22px;">
@@ -827,7 +842,7 @@
           <span class="text-lg font-bold" style="color: white">
             🔒 IS DOGE STORM SAFE?
           </span>
-          <span class="text-2xl" id="icon-2">+</span>
+          <span class="text-2xl text-white" id="icon-2">+</span>
         </button>
         <div class="accordion-content px-6 pb-6" id="content-2">
           <p class="text-gray-100" style="font-size: 22px;">
@@ -846,7 +861,7 @@
           <span class="text-lg font-bold" style="color: white">
             🤖 WHAT IS THE AI AGENT?
           </span>
-          <span class="text-2xl" id="icon-3">+</span>
+          <span class="text-2xl text-white" id="icon-3">+</span>
         </button>
         <div class="accordion-content px-6 pb-6" id="content-3">
           <p class="text-gray-100" style="font-size: 22px;">
@@ -865,7 +880,7 @@
           <span class="text-lg font-bold" style="color: white">
             🚀 WHEN MOON?
           </span>
-          <span class="text-2xl" id="icon-4">+</span>
+          <span class="text-2xl text-white" id="icon-4">+</span>
         </button>
         <div class="accordion-content px-6 pb-6" id="content-4">
           <p class="text-gray-100" style="font-size: 22px;">
@@ -884,10 +899,8 @@
       <section class="community-wrapper">
         <h2 class="section-heading">JOIN THE PACK!</h2>
         <div class="social-buttons">
-          <button class="social-btn">🐦 TWITTER</button>
-          <button class="social-btn">💬 TELEGRAM</button>
-          <button class="social-btn">📱 DISCORD</button>
-          <button class="social-btn">📺 YOUTUBE</button>
+        <a href="https://x.com/Doge_Storm_?t=XeBqNCB-wWVnAzx0Atk1ug&s=09" target="_blank"> <button class="social-btn my-3"> TWITTER</button></a> 
+         <a href="https://t.me/dogestorm_official" target="_blank"><button class="social-btn my-3"> TELEGRAM</button></a> 
         </div>
       </section>
       <!-- Footer -->
@@ -1241,5 +1254,23 @@
         }
       })();
     </script>
+    <script>
+  function toggleMobileMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("hidden");
+  }
+</script>
+<script>
+  window.addEventListener("scroll", function () {
+    const nav = document.getElementById("navbar");
+
+    if (window.scrollY > 30) {
+      nav.classList.add("scrolled");
+    } else {
+      nav.classList.remove("scrolled");
+    }
+  });
+</script>
+
   </body>
 </html>
