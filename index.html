@@ -17,6 +17,22 @@
       * {
         box-sizing: border-box;
       }
+      /* Mobile menu simple text links */
+      #mobileMenu a {
+        border: none !important;
+        background: transparent !important;
+        color: black !important;
+        padding: 10px 20px !important;
+        font-size: 18px !important;
+        font-weight: 600;
+        border-radius: 0 !important;
+        text-transform: none !important;
+      }
+
+      /* Hover effect */
+      #mobileMenu a:hover {
+        color: #b23e08 !important; /* cyan-400 */
+      }
 
       .page-container {
         width: 100%;
@@ -26,8 +42,8 @@
       /* Navigation Styles */
       .sticky-nav {
         position: sticky;
-         /* background: transparent !important; */
-        background: linear-gradient(to bottom,#a86046 , rgba(0,0,0,0.75));
+        /* background: transparent !important; */
+        background: linear-gradient(to bottom, #a86046, rgba(0, 0, 0, 0.75));
         /* background: rgba(0, 0, 0, 0.25);  */
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
@@ -82,21 +98,20 @@
         /* flex-wrap: wrap; */
       }
       /* INITIAL — fully transparent navbar */
-#navbar {
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-bottom: none;
-}
+      #navbar {
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-bottom: none;
+      }
 
-/* WHEN SCROLLED — glassmorphism effect */
-#navbar.scrolled {
-  background: rgba(0, 0, 0, 0.35);         /* slight dark */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-}
-
+      /* WHEN SCROLLED — glassmorphism effect */
+      #navbar.scrolled {
+        background: rgba(0, 0, 0, 0.35); /* slight dark */
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      }
 
       .nav-button {
         background: transparent;
@@ -119,28 +134,27 @@
       }
 
       /* Hero Section */
-     .hero-wrapper {
-  width: 100%;
- height: 120vh;
-  padding: 8% 5%;
-  position: relative;
-  overflow: hidden;
-}
+      .hero-wrapper {
+        width: 100%;
+        height: 120vh;
+        padding: 8% 5%;
+        position: relative;
+        overflow: hidden;
+      }
 
-.hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;   /* keep behind the content */
-}
-.hero-main {
-  position: relative;
-  z-index: 10;   /* keep text above the video */
-}
-
+      .hero-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1; /* keep behind the content */
+      }
+      .hero-main {
+        position: relative;
+        z-index: 10; /* keep text above the video */
+      }
 
       .floating-doge {
         position: absolute;
@@ -232,33 +246,31 @@
       }
 
       /* About Section */
-     .about-wrapper {
-  width: 100%;
-  padding: 6% 8%;
+      .about-wrapper {
+        width: 100%;
+        padding: 6% 8%;
 
-  background: #ffd93d;
-  background-image: url("./about.png");
-  background-size: cover;        /* makes image fill full area */
-  background-position: center;   /* centers image */
-  background-repeat: no-repeat;  /* prevents repeating */
-}
+        background: #ffd93d;
+        background-image: url("./about.png");
+        background-size: cover; /* makes image fill full area */
+        background-position: center; /* centers image */
+        background-repeat: no-repeat; /* prevents repeating */
+      }
 
+      .about-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+      }
 
-     .about-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-}
+      .about-left {
+        flex: 1; /* takes left side */
+      }
 
-.about-left {
-  flex: 1;          /* takes left side */
-}
-
-.about-right {
-  flex: 1;          /* empty right side */
-}
-
+      .about-right {
+        flex: 1; /* empty right side */
+      }
 
       .section-heading {
         font-size: 3.5em;
@@ -329,32 +341,31 @@
       }
 
       /* Features Section */
-          .features-wrapper {
-  width: 100%;
-  padding: 6% 8%;
- height: auto !important;     
-  min-height: auto !important;
+      .features-wrapper {
+        width: 100%;
+        padding: 6% 8%;
+        height: auto !important;
+        min-height: auto !important;
 
-  background-image: url("./why.jpg");
-  background-size: cover;        /* makes image fill full area */
-  background-position: center;   /* centers image */
-  background-repeat: no-repeat;  /* prevents repeating */
-}
-/* Mobile View */
-@media (max-width: 768px) {
-  .features-grid {
-    height: 310vh;  /* Increase or decrease as needed */
-    
-  }
-}
+        background-image: url("./why.jpg");
+        background-size: cover; /* makes image fill full area */
+        background-position: center; /* centers image */
+        background-repeat: no-repeat; /* prevents repeating */
+      }
+      /* Mobile View */
+      @media (max-width: 768px) {
+        .features-grid {
+          height: 310vh; /* Increase or decrease as needed */
+        }
+      }
 
-/* Extra Small Devices */
-@media (max-width: 480px) {
-  .features-grid {
-    min-height: 140vh;
-  }
-}
-    .features-grid {
+      /* Extra Small Devices */
+      @media (max-width: 480px) {
+        .features-grid {
+          min-height: 140vh;
+        }
+      }
+      .features-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 4%;
@@ -364,7 +375,7 @@
 
       .feature-card {
         /* background: transparent; */
-        background: rgba(21, 21, 21, 0.3); 
+        background: rgba(21, 21, 21, 0.3);
         backdrop-filter: blur(10px);
         padding: 5%;
         border-radius: 30px;
@@ -499,15 +510,14 @@
 
       /* FAQ Section */
       .faq-wrapper {
-  width: 100%;
-  padding: 6% 8%;
+        width: 100%;
+        padding: 6% 8%;
 
-
-  background-image: url("./faq.jpg");
-  background-size: cover;        /* makes image fill full area */
-  background-position: center;   /* centers image */
-  background-repeat: no-repeat;  /* prevents repeating */
-}
+        background-image: url("./faq.jpg");
+        background-size: cover; /* makes image fill full area */
+        background-position: center; /* centers image */
+        background-repeat: no-repeat; /* prevents repeating */
+      }
 
       .faq-container {
         max-width: 900px;
@@ -641,95 +651,125 @@
   <body>
     <div class="page-container">
       <!-- Sticky Navigation -->
-     
-     <nav id="navbar" class="fixed top-0 w-full z-50 backdrop-blur-md bg-black/30">
-  <div class="container mx-auto px-6 py-3">
-    <div class="flex items-center justify-between">
 
-      <!-- LOGO -->
-      <div class="flex items-center">
-        <img
-          src="./logo.png"
-          alt=" Logo"
-          class="rounded-lg w-20 md:w-24 lg:w-32"
-        />
-      </div>
-
-      <!-- DESKTOP MENU -->
-      <div class="hidden md:flex space-x-10">
-        <a href="#home" class="nav-button hover:text-cyan-400 transition">HOME</a>
-        <a href="#about" class="nav-button hover:text-cyan-400 transition">ABOUT</a>
-        <a href="#features" class="nav-button hover:text-cyan-400 transition">FEATURES</a>
-        <a href="#contact" class="nav-button hover:text-cyan-400 transition">CONTACT</a>
-      </div>
-
-      <!-- MOBILE MENU BUTTON -->
-      <button
-        class="md:hidden text-3xl text-white"
-        onclick="toggleMobileMenu()"
+      <nav
+        id="navbar"
+        class="fixed top-0 w-full z-50 backdrop-blur-md bg-black/30"
       >
-        ☰
-      </button>
-    </div>
+        <div class="container mx-auto px-6 py-3">
+          <div class="flex items-center justify-between">
+            <!-- LOGO -->
+            <div class="flex items-center">
+              <img
+                src="./logo.png"
+                alt=" Logo"
+                class="rounded-lg w-20 md:w-24 lg:w-32"
+              />
+            </div>
 
-    <!-- MOBILE MENU -->
-    <div id="mobileMenu" class="hidden flex flex-col mt-4 space-y-4 md:hidden">
-      <a href="#home" class="nav-button hover:text-cyan-400 transition">HOME</a>
-      <a href="#about" class="nav-button hover:text-cyan-400 transition">ABOUT</a>
-      <a href="#features" class="nav-button hover:text-cyan-400 transition">FEATURES</a>
-      <a href="#contact" class="nav-button hover:text-cyan-400 transition">CONTACT</a>
-    </div>
-  </div>
-</nav>
+            <!-- DESKTOP MENU -->
+            <div class="hidden md:flex space-x-10">
+              <a href="#home" class="nav-button hover:text-cyan-400 transition"
+                >HOME</a
+              >
+              <a href="#about" class="nav-button hover:text-cyan-400 transition"
+                >ABOUT</a
+              >
+              <a
+                href="#features"
+                class="nav-button hover:text-cyan-400 transition"
+                >FEATURES</a
+              >
+              <a
+                href="#contact"
+                class="nav-button hover:text-cyan-400 transition"
+                >CONTACT</a
+              >
+            </div>
 
+            <!-- MOBILE MENU BUTTON -->
+            <button
+              class="md:hidden text-3xl text-white"
+              onclick="toggleMobileMenu()"
+            >
+              ☰
+            </button>
+          </div>
 
+          <!-- MOBILE MENU -->
+          <div
+            id="mobileMenu"
+            class="hidden flex flex-col mt-2 space-y-4 md:hidden bg-white text-dark"
+          >
+            <a
+              href="#home"
+              class="text-dark  hover:text-cyan-400 "
+              >HOME</a
+            >
+            <a href="#about" class=" hover:text-cyan-400 "
+              >ABOUT</a
+            >
+            <a
+              href="#features"
+              class=" hover:text-cyan-400 transition"
+              >FEATURES</a
+            >
+            <a href="#contact" class=" hover:text-cyan-400 transition"
+              >CONTACT</a
+            >
+          </div>
+        </div>
+      </nav>
 
       <!-- Hero Section -->
 
-    <section class="hero-wrapper" id="hero">
+      <section class="hero-wrapper" id="hero">
+        <!-- Background Video -->
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="./loop.mp4" type="video/mp4" />
+        </video>
 
-  <!-- Background Video -->
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="./loop.mp4" type="video/mp4" />
-  </video>
-
-  <!-- Content -->
-  <div class="hero-main" style="margin-top: 8%;">
-    <h1 class="main-title relative z-10 flex flex-col items-center justify-center h-full text-center px-4  mt-20 sm:mt-0  text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">THE STORM IS HERE! ⚡</h1>
-    <p class="subtitle  text-white mt-4 
-             text-base sm:text-lg md:text-xl lg:text-2xl
-             drop-shadow-md">AI-Powered Meme Coin on BSC Network</p>
-    <button class="cta-main  w-25 mt-6 px-6 py-3 
-             text-white font-semibold rounded-lg
-             bg-gradient-to-r from-cyan-400 to-purple-500
-             hover:scale-110 transition-transform
-             text-sm sm:text-base md:text-lg">BUY NOW</button>
-  </div>
-
-</section>
+        <!-- Content -->
+        <div class="hero-main" style="margin-top: 8%">
+          <h1
+            class="main-title relative z-10 flex flex-col items-center justify-center h-full text-center px-4 mt-20 sm:mt-0 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+          >
+            THE STORM IS HERE! ⚡
+          </h1>
+          <p
+            class="subtitle text-white mt-4 text-base sm:text-lg md:text-xl lg:text-2xl drop-shadow-md"
+          >
+            AI-Powered Meme Coin on BSC Network
+          </p>
+          <button
+            class="cta-main w-25 mt-6 px-6 py-3 text-white font-semibold rounded-lg bg-gradient-to-r from-cyan-400 to-purple-500 hover:scale-110 transition-transform text-sm sm:text-base md:text-lg"
+          >
+            BUY NOW
+          </button>
+        </div>
+      </section>
 
       <!-- About Section -->
-   <section class="about-wrapper" id="about">
-    <h2 class="section-heading text-center text-white" id="aboutHeading">WHAT IS DOGE STORM?</h2>
-  <div class="about-content">
-    
-    <div class="about-left">
-      
-      <p class="about-description" id="aboutText">
-        Doge Storm is the ultimate meme coin powered by AI agents and backed
-        by the legendary Doge community. Running on Binance Smart Chain
-        (BEP-20), we combine lightning-fast transactions with cutting-edge
-        technology. Much wow. Very storm. To the moon! 🚀
-      </p>
-    </div>
+      <section class="about-wrapper" id="about">
+        <h2 class="section-heading text-center text-white" id="aboutHeading">
+          WHAT IS DOGE STORM?
+        </h2>
+        <div class="about-content">
+          <div class="about-left">
+            <p class="about-description" id="aboutText">
+              Doge Storm is the ultimate meme coin powered by AI agents and
+              backed by the legendary Doge community. Running on Binance Smart
+              Chain (BEP-20), we combine lightning-fast transactions with
+              cutting-edge technology. Much wow. Very storm. To the moon! 🚀
+            </p>
+          </div>
 
-    <div class="about-right hidden md:block">
-      <!-- KEEP EMPTY -->
-    </div>
-
-  </div>
-</section>
-  <!-- features Section -->
+          <div class="about-right hidden md:block">
+            <!-- KEEP EMPTY -->
+          </div>
+        </div>
+      </section>
+      <!-- features Section -->
 
       <section class="features-wrapper" id="features">
         <h2 class="section-white-heading">WHY DOGE STORM?</h2>
@@ -777,130 +817,146 @@
           <div class="feature-card text-center pb-sm-5">
             <div class="feature-icon">🚀</div>
             <h3 class="feature-title text-white">TO THE MOON</h3>
-            <p class="feature-description text-white ">
+            <p class="feature-description text-white">
               Join the storm and ride the wave to the moon with the strongest
               community in crypto!
             </p>
           </div>
         </div>
       </section>
-      
+
       <!-- FAQ Section -->
       <section class="faq-wrapper" id="faq">
         <h2 class="section-white-heading">FREQUENTLY ASKED QUESTIONS</h2>
-      
-  <div class="container mx-auto px-6">
-   
 
-    <div class="max-w-4xl mx-auto space-y-4">
+        <div class="container mx-auto px-6">
+          <div class="max-w-4xl mx-auto space-y-4">
+            <!-- FAQ 1 -->
+            <div
+              class="bg-gray-900 bg-opacity-50 border border-cyan-500 rounded-lg"
+            >
+              <button
+                class="w-full p-6 text-left flex justify-between items-center"
+                onclick="toggleAccordion(0)"
+              >
+                <span class="text-lg font-bold" style="color: white">
+                  🤔 WHAT IS DOGE STORM?
+                </span>
+                <span class="text-2xl text-white" id="icon-0">+</span>
+              </button>
+              <div class="accordion-content px-6 pb-6" id="content-0">
+                <p class="text-gray-100" style="font-size: 22px">
+                  Doge Storm is a community-driven meme coin with AI agent
+                  technology, running on the Binance Smart Chain (BEP-20).
+                  Inspired by Dogecoin and backed by the legendary Doge
+                  community!
+                </p>
+              </div>
+            </div>
 
-      <!-- FAQ 1 -->
-      <div class="bg-gray-900 bg-opacity-50 border border-cyan-500 rounded-lg">
-        <button
-          class="w-full p-6 text-left flex justify-between items-center"
-          onclick="toggleAccordion(0)"
-        >
-          <span class="text-lg font-bold" style="color: white">
-            🤔 WHAT IS DOGE STORM?
-          </span>
-          <span class="text-2xl text-white" id="icon-0">+</span>
-        </button>
-        <div class="accordion-content px-6 pb-6" id="content-0">
-          <p class="text-gray-100" style="font-size: 22px;">
-            Doge Storm is a community-driven meme coin with AI agent technology,
-            running on the Binance Smart Chain (BEP-20). Inspired by Dogecoin
-            and backed by the legendary Doge community!
-          </p>
+            <!-- FAQ 2 -->
+            <div
+              class="bg-gray-900 bg-opacity-50 border border-purple-500 rounded-lg"
+            >
+              <button
+                class="w-full p-6 text-left flex justify-between items-center"
+                onclick="toggleAccordion(1)"
+              >
+                <span class="text-lg font-bold" style="color: white">
+                  💰 HOW DO I BUY DOGE STORM?
+                </span>
+                <span class="text-2xl text-white" id="icon-1">+</span>
+              </button>
+              <div class="accordion-content px-6 pb-6" id="content-1">
+                <p class="text-gray-100" style="font-size: 22px">
+                  Connect your wallet (MetaMask, Trust Wallet) to PancakeSwap,
+                  enter our contract address, and swap BNB for DOGE STORM
+                  tokens.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div
+              class="bg-gray-900 bg-opacity-50 border border-pink-500 rounded-lg"
+            >
+              <button
+                class="w-full p-6 text-left flex justify-between items-center"
+                onclick="toggleAccordion(2)"
+              >
+                <span class="text-lg font-bold" style="color: white">
+                  🔒 IS DOGE STORM SAFE?
+                </span>
+                <span class="text-2xl text-white" id="icon-2">+</span>
+              </button>
+              <div class="accordion-content px-6 pb-6" id="content-2">
+                <p class="text-gray-100" style="font-size: 22px">
+                  Yes! Liquidity is locked, contract audited, and there is 0%
+                  buy/sell tax. Security and transparency are our top
+                  priorities.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div
+              class="bg-gray-900 bg-opacity-50 border border-yellow-500 rounded-lg"
+            >
+              <button
+                class="w-full p-6 text-left flex justify-between items-center"
+                onclick="toggleAccordion(3)"
+              >
+                <span class="text-lg font-bold" style="color: white">
+                  🤖 WHAT IS THE AI AGENT?
+                </span>
+                <span class="text-2xl text-white" id="icon-3">+</span>
+              </button>
+              <div class="accordion-content px-6 pb-6" id="content-3">
+                <p class="text-gray-100" style="font-size: 22px">
+                  Doge Storm’s AI Agent provides automated features, smart
+                  transaction routing, and community management tools — the
+                  future of meme coins!
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div
+              class="bg-gray-900 bg-opacity-50 border border-green-500 rounded-lg"
+            >
+              <button
+                class="w-full p-6 text-left flex justify-between items-center"
+                onclick="toggleAccordion(4)"
+              >
+                <span class="text-lg font-bold" style="color: white">
+                  🚀 WHEN MOON?
+                </span>
+                <span class="text-2xl text-white" id="icon-4">+</span>
+              </button>
+              <div class="accordion-content px-6 pb-6" id="content-4">
+                <p class="text-gray-100" style="font-size: 22px">
+                  SOON! With an active community, AI-powered utilities, and
+                  strong marketing — we’re headed straight to the moon! 🌙
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <!-- FAQ 2 -->
-      <div class="bg-gray-900 bg-opacity-50 border border-purple-500 rounded-lg">
-        <button
-          class="w-full p-6 text-left flex justify-between items-center"
-          onclick="toggleAccordion(1)"
-        >
-          <span class="text-lg font-bold" style="color: white">
-            💰 HOW DO I BUY DOGE STORM?
-          </span>
-          <span class="text-2xl text-white" id="icon-1">+</span>
-        </button>
-        <div class="accordion-content px-6 pb-6" id="content-1">
-          <p class="text-gray-100" style="font-size: 22px;">
-            Connect your wallet (MetaMask, Trust Wallet) to PancakeSwap, enter
-            our contract address, and swap BNB for DOGE STORM tokens.
-          </p>
-        </div>
-      </div>
-
-      <!-- FAQ 3 -->
-      <div class="bg-gray-900 bg-opacity-50 border border-pink-500 rounded-lg">
-        <button
-          class="w-full p-6 text-left flex justify-between items-center"
-          onclick="toggleAccordion(2)"
-        >
-          <span class="text-lg font-bold" style="color: white">
-            🔒 IS DOGE STORM SAFE?
-          </span>
-          <span class="text-2xl text-white" id="icon-2">+</span>
-        </button>
-        <div class="accordion-content px-6 pb-6" id="content-2">
-          <p class="text-gray-100" style="font-size: 22px;">
-            Yes! Liquidity is locked, contract audited, and there is 0% buy/sell
-            tax. Security and transparency are our top priorities.
-          </p>
-        </div>
-      </div>
-
-      <!-- FAQ 4 -->
-      <div class="bg-gray-900 bg-opacity-50 border border-yellow-500 rounded-lg">
-        <button
-          class="w-full p-6 text-left flex justify-between items-center"
-          onclick="toggleAccordion(3)"
-        >
-          <span class="text-lg font-bold" style="color: white">
-            🤖 WHAT IS THE AI AGENT?
-          </span>
-          <span class="text-2xl text-white" id="icon-3">+</span>
-        </button>
-        <div class="accordion-content px-6 pb-6" id="content-3">
-          <p class="text-gray-100" style="font-size: 22px;">
-            Doge Storm’s AI Agent provides automated features, smart transaction
-            routing, and community management tools — the future of meme coins!
-          </p>
-        </div>
-      </div>
-
-      <!-- FAQ 5 -->
-      <div class="bg-gray-900 bg-opacity-50 border border-green-500 rounded-lg">
-        <button
-          class="w-full p-6 text-left flex justify-between items-center"
-          onclick="toggleAccordion(4)"
-        >
-          <span class="text-lg font-bold" style="color: white">
-            🚀 WHEN MOON?
-          </span>
-          <span class="text-2xl text-white" id="icon-4">+</span>
-        </button>
-        <div class="accordion-content px-6 pb-6" id="content-4">
-          <p class="text-gray-100" style="font-size: 22px;">
-            SOON! With an active community, AI-powered utilities, and strong
-            marketing — we’re headed straight to the moon! 🌙
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
- 
       <!-- Community Section -->
       <section class="community-wrapper">
         <h2 class="section-heading">JOIN THE PACK!</h2>
         <div class="social-buttons">
-        <a href="https://x.com/Doge_Storm_?t=XeBqNCB-wWVnAzx0Atk1ug&s=09" target="_blank"> <button class="social-btn my-3"> TWITTER</button></a> 
-         <a href="https://t.me/dogestorm_official" target="_blank"><button class="social-btn my-3"> TELEGRAM</button></a> 
+          <a
+            href="https://x.com/Doge_Storm_?t=XeBqNCB-wWVnAzx0Atk1ug&s=09"
+            target="_blank"
+          >
+            <button class="social-btn my-3">TWITTER</button></a
+          >
+          <a href="https://t.me/dogestorm_official" target="_blank"
+            ><button class="social-btn my-3">TELEGRAM</button></a
+          >
         </div>
       </section>
       <!-- Footer -->
@@ -911,31 +967,30 @@
           <p class="footer-text">
             © 2024 DOGE STORM. ALL RIGHTS RESERVED. TO THE MOON! 🚀
           </p>
-        
         </div>
       </footer>
     </div>
     <script>
-  function toggleAccordion(index) {
-    const content = document.getElementById(`content-${index}`);
-    const icon = document.getElementById(`icon-${index}`);
+      function toggleAccordion(index) {
+        const content = document.getElementById(`content-${index}`);
+        const icon = document.getElementById(`icon-${index}`);
 
-    if (content.style.display === "block") {
-      content.style.display = "none";
-      icon.textContent = "+";
-    } else {
-      content.style.display = "block";
-      icon.textContent = "-";
-    }
-  }
+        if (content.style.display === "block") {
+          content.style.display = "none";
+          icon.textContent = "+";
+        } else {
+          content.style.display = "block";
+          icon.textContent = "-";
+        }
+      }
 
-  // Hide all accordion contents by default
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".accordion-content").forEach((el) => {
-      el.style.display = "none";
-    });
-  });
-</script>
+      // Hide all accordion contents by default
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".accordion-content").forEach((el) => {
+          el.style.display = "none";
+        });
+      });
+    </script>
 
     <script>
       const defaultConfig = {
@@ -1255,22 +1310,21 @@
       })();
     </script>
     <script>
-  function toggleMobileMenu() {
-    const menu = document.getElementById("mobileMenu");
-    menu.classList.toggle("hidden");
-  }
-</script>
-<script>
-  window.addEventListener("scroll", function () {
-    const nav = document.getElementById("navbar");
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("hidden");
+      }
+    </script>
+    <script>
+      window.addEventListener("scroll", function () {
+        const nav = document.getElementById("navbar");
 
-    if (window.scrollY > 30) {
-      nav.classList.add("scrolled");
-    } else {
-      nav.classList.remove("scrolled");
-    }
-  });
-</script>
-
+        if (window.scrollY > 30) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+    </script>
   </body>
 </html>
