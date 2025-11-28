@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doge Storm - Complete Website</title>
+    <script src="/_sdk/element_sdk.js"></script>
+    <style>
+      body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Comic Sans MS", "Arial Black", sans-serif;
+        overflow-x: hidden;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .page-container {
+        width: 100%;
+        min-height: 100%;
+      }
+
+      /* Navigation Styles */
+      .sticky-nav {
+        position: sticky;
+         /* background: transparent !important; */
+        background: linear-gradient(to bottom,#a86046 , rgba(0,0,0,0.75));
+        /* background: rgba(0, 0, 0, 0.25);  */
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        top: 0;
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* soft border */
+        z-index: 999;
+        padding: 1% 5%;
+        z-index: 1000;
+        box-shadow: none;
+        width: 100%;
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* flex-wrap: wrap; */
+        gap: 2%;
+        background: transparent;
+      }
+
+      .brand-logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      /* .logo-icon {
+      font-size: 2.5em;
+      animation: spin 3s linear infinite;
+    } */
+
+      /* @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    } */
+
+      .brand-name {
+        font-size: 2em;
+        font-weight: 900;
+        color: #ff6b35;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 3px 3px 0px rgba(255, 107, 53, 0.3);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2%;
+        /* flex-wrap: wrap; */
+      }
+
+      .nav-button {
+        background: transparent;
+        color: #fffefe;
+        border: 3px solid #ff6b35;
+        padding: 8px 20px;
+        font-size: 18px;
+        font-weight: 500;
+        border-radius: 50px;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+      }
+
+      .nav-button:hover,
+      .nav-button.active {
+        background: #ff6b35;
+        color: #ffffff;
+        transform: scale(1.05);
+      }
+
+      /* Hero Section */
+     .hero-wrapper {
+  width: 100%;
+ height: 120vh;
+  padding: 8% 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;   /* keep behind the content */
+}
+.hero-main {
+  position: relative;
+  z-index: 10;   /* keep text above the video */
+}
+
+
+      .floating-doge {
+        position: absolute;
+        font-size: 8em;
+        opacity: 0.1;
+        animation: float-around 8s ease-in-out infinite;
+      }
+
+      .doge-1 {
+        top: 10%;
+        left: 5%;
+        animation-delay: 0s;
+      }
+      .doge-2 {
+        top: 50%;
+        right: 10%;
+        animation-delay: 2s;
+      }
+      .doge-3 {
+        bottom: 20%;
+        left: 15%;
+        animation-delay: 4s;
+      }
+
+      @keyframes float-around {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        25% {
+          transform: translate(20px, -20px) rotate(5deg);
+        }
+        50% {
+          transform: translate(-20px, 20px) rotate(-5deg);
+        }
+        75% {
+          transform: translate(20px, 20px) rotate(3deg);
+        }
+      }
+
+      .hero-main {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .main-title {
+        font-size: 5em;
+        font-weight: 900;
+        color: #ffffff;
+        margin-bottom: 2%;
+        text-transform: uppercase;
+        line-height: 1.1;
+        text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
+        letter-spacing: 3px;
+      }
+
+      .subtitle {
+        font-size: 2em;
+        color: #ffffff;
+        margin-bottom: 4%;
+        font-weight: 700;
+        text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-main {
+        background: #4ecdc4;
+        color: #ffffff;
+        border: none;
+        padding: 20px 60px;
+        font-size: 1.8em;
+        font-weight: 900;
+        border-radius: 50px;
+        cursor: pointer;
+        text-transform: uppercase;
+        box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
+        transition: all 0.2s ease;
+        margin: 2% 1%;
+      }
+
+      .cta-main:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 9px 9px 0px rgba(0, 0, 0, 0.3);
+      }
+
+      .cta-main:active {
+        transform: translate(3px, 3px);
+        box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+      }
+
+      /* About Section */
+     .about-wrapper {
+  width: 100%;
+  padding: 6% 8%;
+
+  background: #ffd93d;
+  background-image: url("./about.png");
+  background-size: cover;        /* makes image fill full area */
+  background-position: center;   /* centers image */
+  background-repeat: no-repeat;  /* prevents repeating */
+}
+
+
+     .about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.about-left {
+  flex: 1;          /* takes left side */
+}
+
+.about-right {
+  flex: 1;          /* empty right side */
+}
+
+
+      .section-heading {
+        font-size: 3.5em;
+        font-weight: 900;
+        color: #1a1a1a;
+        margin-bottom: 3%;
+        text-transform: uppercase;
+        text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-description {
+        font-size: 1.5em;
+        color: #1a1a1a;
+        line-height: 1.7;
+        font-weight: 700;
+        background: #ffffff;
+        padding: 4%;
+        border-radius: 30px;
+        box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Tokenomics Section */
+      .tokenomics-wrapper {
+        width: 100%;
+        background: #6a4c93;
+        padding: 6% 5%;
+      }
+
+      .tokenomics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 4%;
+        max-width: 1200px;
+        margin: 4% auto 0;
+      }
+
+      .token-box {
+        background: #ffffff;
+        padding: 5%;
+        border-radius: 30px;
+        text-align: center;
+        box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .token-box:hover {
+        transform: translateY(-10px) rotate(2deg);
+      }
+
+      .token-icon {
+        font-size: 4em;
+        margin-bottom: 3%;
+      }
+
+      .token-value {
+        font-size: 2.5em;
+        font-weight: 900;
+        color: #ff6b35;
+        margin-bottom: 2%;
+        text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+      }
+
+      .token-label {
+        font-size: 1.3em;
+        font-weight: 700;
+        color: #1a1a1a;
+        text-transform: uppercase;
+      }
+
+      /* Features Section */
+          .features-wrapper {
+  width: 100%;
+  padding: 6% 8%;
+
+
+  background-image: url("./why.jpg");
+  background-size: cover;        /* makes image fill full area */
+  background-position: center;   /* centers image */
+  background-repeat: no-repeat;  /* prevents repeating */
+}
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 4%;
+        max-width: 1200px;
+        margin: 4% auto 0;
+      }
+
+      .feature-card {
+        /* background: transparent; */
+        background: rgba(21, 21, 21, 0.3); 
+        backdrop-filter: blur(10px);
+        padding: 5%;
+        border-radius: 30px;
+        box-shadow: 10px 10px 10px rgba(8, 8, 8, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .feature-icon {
+        font-size: 4em;
+        text-align: center;
+        margin-bottom: 3%;
+      }
+
+      .feature-title {
+        font-size: 1.8em;
+        font-weight: 900;
+        color: #1a1a1a;
+        margin-bottom: 3%;
+        text-transform: uppercase;
+      }
+
+      .feature-description {
+        font-size: 1.2em;
+        color: #333;
+        line-height: 1.6;
+        font-weight: 600;
+      }
+
+      /* Roadmap Section */
+      .roadmap-wrapper {
+        width: 100%;
+        background: #ff6b35;
+        padding: 6% 5%;
+      }
+
+      .roadmap-timeline {
+        max-width: 1000px;
+        margin: 4% auto 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4%;
+      }
+
+      .roadmap-phase {
+        background: #ffffff;
+        padding: 4%;
+        border-radius: 30px;
+        box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+        position: relative;
+        transition: transform 0.3s ease;
+      }
+
+      .roadmap-phase:hover {
+        transform: translateX(20px);
+      }
+
+      .phase-number {
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        background: #ffd93d;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2em;
+        font-weight: 900;
+        box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+      }
+
+      .phase-title {
+        font-size: 2em;
+        font-weight: 900;
+        color: #ff6b35;
+        margin-bottom: 2%;
+        text-transform: uppercase;
+        padding-left: 50px;
+      }
+
+      .phase-description {
+        font-size: 1.3em;
+        color: #333;
+        line-height: 1.6;
+        font-weight: 600;
+      }
+
+      /* Community Section */
+      .community-wrapper {
+        width: 100%;
+        background: #ffd93d;
+        padding: 6% 5%;
+        text-align: center;
+      }
+
+      .social-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 3%;
+        flex-wrap: wrap;
+        margin-top: 3%;
+      }
+
+      .social-btn {
+        background: #ffffff;
+        color: #1a1a1a;
+        border: none;
+        padding: 18px 40px;
+        font-size: 1.4em;
+        font-weight: 900;
+        border-radius: 50px;
+        cursor: pointer;
+        text-transform: uppercase;
+        box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .social-btn:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 7px 7px 0px rgba(0, 0, 0, 0.2);
+        background: #ff6b35;
+        color: #ffffff;
+      }
+
+      /* FAQ Section */
+      .faq-wrapper {
+  width: 100%;
+  padding: 6% 8%;
+
+
+  background-image: url("./faq.jpg");
+  background-size: cover;        /* makes image fill full area */
+  background-position: center;   /* centers image */
+  background-repeat: no-repeat;  /* prevents repeating */
+}
+
+      .faq-container {
+        max-width: 900px;
+        margin: 4% auto 0;
+      }
+
+      .faq-item {
+        background: #ffffff;
+        padding: 3%;
+        margin-bottom: 3%;
+        border-radius: 20px;
+        box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .faq-item:hover {
+        transform: translateX(10px);
+      }
+
+      .faq-question {
+        font-size: 1.5em;
+        font-weight: 900;
+        color: #ff6b35;
+        text-transform: uppercase;
+        margin-bottom: 2%;
+      }
+
+      .faq-answer {
+        font-size: 1.2em;
+        color: #333;
+        line-height: 1.6;
+        font-weight: 600;
+      }
+
+      /* Footer */
+      .footer-section {
+        width: 100%;
+        background: #1a1a1a;
+        padding: 4% 5%;
+        text-align: center;
+        color: #ffffff;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-logo {
+        font-size: 3em;
+        margin-bottom: 2%;
+      }
+
+      .footer-text {
+        font-size: 1.2em;
+        font-weight: 700;
+        margin-bottom: 2%;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 3%;
+        flex-wrap: wrap;
+        margin-top: 3%;
+      }
+
+      .footer-link {
+        color: #ff6b35;
+        text-decoration: none;
+        font-size: 1.1em;
+        font-weight: 700;
+        transition: color 0.3s ease;
+      }
+
+      .footer-link:hover {
+        color: #ffd93d;
+      }
+
+      .section-white-heading {
+        font-size: 3.5em;
+        font-weight: 900;
+        color: #ffffff;
+        margin-bottom: 3%;
+        text-transform: uppercase;
+        text-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        .main-title {
+          font-size: 3em;
+        }
+
+        .subtitle {
+          font-size: 1.4em;
+        }
+
+        .section-heading,
+        .section-white-heading {
+          font-size: 2.5em;
+        }
+
+        .brand-name {
+          font-size: 1.5em;
+        }
+
+        .nav-content {
+          justify-content: center;
+        }
+
+        .social-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .roadmap-phase:hover {
+          transform: translateY(-10px);
+        }
+      }
+    </style>
+    <style>
+      @view-transition {
+        navigation: auto;
+      }
+    </style>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+    <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="page-container">
+      <!-- Sticky Navigation -->
+      <!--<nav class="sticky-nav">
+        <div class="nav-content">
+          <div class="brand-logo">
+            <div class="logo-icon"></div>
+            <div class="brand-name">
+              <img src="./logo.png" width="24%" />
+            </div>
+          </div>
+          <div class="nav-links">
+            <button class="nav-button active" onclick="scrollToSection('hero')">
+              HOME
+            </button>
+            <button class="nav-button" onclick="scrollToSection('about')">
+              ABOUT
+            </button>
+            <button class="nav-button" onclick="scrollToSection('tokenomics')">
+              TOKENOMICS
+            </button>
+            <button class="nav-button" onclick="scrollToSection('features')">
+              FEATURES
+            </button>
+            <button class="nav-button" onclick="scrollToSection('roadmap')">
+              ROADMAP
+            </button>
+          </div>
+        </div>
+      </nav> -->
+      <nav
+      class="fixed top-0 w-full z-50  backdrop-blur-md "
+    >
+      <div class="container mx-auto px-6 py-2">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <img
+              src="./logo.png"
+              alt="GI Logo"
+              class="rounded-lg"
+              style="width: 12%"
+            />
+            <!-- <div class="w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-lg flex items-center justify-center">
+                        hjjjh
+                    </div> -->
+          </div>
+          <div class="hidden md:flex space-x-10">
+            <a href="#home" class=" nav-button hover:text-cyan-400 transition-colors"
+              >HOME</a
+            >
+            <a href="#about" class="nav-button hover:text-cyan-400 transition-colors"
+              >ABOUT</a
+            >
+           
+            <a href="#features" class=" nav-button hover:text-cyan-400 transition-colors"
+              >FEATURES</a
+            >
+           
+            <a href="#contact" class=" nav-button hover:text-cyan-400 transition-colors"
+              >CONTACT</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+      <!-- Hero Section -->
+
+    <section class="hero-wrapper" id="hero">
+
+  <!-- Background Video -->
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="./loop.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Content -->
+  <div class="hero-main" style="margin-top: 4%;">
+    <h1 class="main-title">THE STORM IS HERE! ⚡</h1>
+    <p class="subtitle">AI-Powered Meme Coin on BSC Network</p>
+    <button class="cta-main">BUY NOW</button>
+  </div>
+
+</section>
+
+      <!-- About Section -->
+   <section class="about-wrapper" id="about">
+    <h2 class="section-heading text-center text-white" id="aboutHeading">WHAT IS DOGE STORM?</h2>
+  <div class="about-content">
+    
+    <div class="about-left">
+      
+      <p class="about-description" id="aboutText">
+        Doge Storm is the ultimate meme coin powered by AI agents and backed
+        by the legendary Doge community. Running on Binance Smart Chain
+        (BEP-20), we combine lightning-fast transactions with cutting-edge
+        technology. Much wow. Very storm. To the moon! 🚀
+      </p>
+    </div>
+
+    <div class="about-right">
+      <!-- KEEP EMPTY -->
+    </div>
+
+  </div>
+</section>
+
+      <!-- Tokenomics Section -->
+ 
+
+      <section class="features-wrapper" id="features">
+        <h2 class="section-white-heading">WHY DOGE STORM?</h2>
+        <div class="features-grid">
+          <div class="feature-card text-center">
+            <div class="feature-icon">🤖</div>
+            <h3 class="feature-title text-white">AI-POWERED</h3>
+            <p class="feature-description text-white">
+              Revolutionary AI agent technology integrated into our ecosystem
+              for smarter, faster transactions and automated features.
+            </p>
+          </div>
+          <div class="feature-card text-center">
+            <div class="feature-icon">🌟</div>
+            <h3 class="feature-title text-white">COMMUNITY DRIVEN</h3>
+            <p class="feature-description text-white">
+              Built by the Doge community, for the Doge community. Every holder
+              has a voice in our future!
+            </p>
+          </div>
+          <div class="feature-card text-center">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title text-white">BSC LIGHTNING</h3>
+            <p class="feature-description text-white">
+              Running on Binance Smart Chain for instant transactions and
+              minimal fees. Fast and affordable!
+            </p>
+          </div>
+          <div class="feature-card text-center">
+            <div class="feature-icon">🔒</div>
+            <h3 class="feature-title text-white">SAFE &amp; SECURE</h3>
+            <p class="feature-description text-white">
+              Liquidity locked, contract audited, and transparent. Your
+              investment is protected!
+            </p>
+          </div>
+          <div class="feature-card text-center">
+            <div class="feature-icon">💎</div>
+            <h3 class="feature-title text-white">DEFLATIONARY</h3>
+            <p class="feature-description text-white">
+              50% of tokens already burned! Watch your holdings become more
+              valuable over time.
+            </p>
+          </div>
+          <div class="feature-card text-center">
+            <div class="feature-icon">🚀</div>
+            <h3 class="feature-title text-white">TO THE MOON</h3>
+            <p class="feature-description text-white">
+              Join the storm and ride the wave to the moon with the strongest
+              community in crypto!
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- FAQ Section -->
+      <section class="faq-wrapper" id="faq">
+        <h2 class="section-white-heading">FREQUENTLY ASKED QUESTIONS</h2>
+      
+  <div class="container mx-auto px-6">
+   
+
+    <div class="max-w-4xl mx-auto space-y-4">
+
+      <!-- FAQ 1 -->
+      <div class="bg-gray-900 bg-opacity-50 border border-cyan-500 rounded-lg">
+        <button
+          class="w-full p-6 text-left flex justify-between items-center"
+          onclick="toggleAccordion(0)"
+        >
+          <span class="text-lg font-bold" style="color: white">
+            🤔 WHAT IS DOGE STORM?
+          </span>
+          <span class="text-2xl" id="icon-0">+</span>
+        </button>
+        <div class="accordion-content px-6 pb-6" id="content-0">
+          <p class="text-gray-100" style="font-size: 22px;">
+            Doge Storm is a community-driven meme coin with AI agent technology,
+            running on the Binance Smart Chain (BEP-20). Inspired by Dogecoin
+            and backed by the legendary Doge community!
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="bg-gray-900 bg-opacity-50 border border-purple-500 rounded-lg">
+        <button
+          class="w-full p-6 text-left flex justify-between items-center"
+          onclick="toggleAccordion(1)"
+        >
+          <span class="text-lg font-bold" style="color: white">
+            💰 HOW DO I BUY DOGE STORM?
+          </span>
+          <span class="text-2xl" id="icon-1">+</span>
+        </button>
+        <div class="accordion-content px-6 pb-6" id="content-1">
+          <p class="text-gray-100" style="font-size: 22px;">
+            Connect your wallet (MetaMask, Trust Wallet) to PancakeSwap, enter
+            our contract address, and swap BNB for DOGE STORM tokens.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="bg-gray-900 bg-opacity-50 border border-pink-500 rounded-lg">
+        <button
+          class="w-full p-6 text-left flex justify-between items-center"
+          onclick="toggleAccordion(2)"
+        >
+          <span class="text-lg font-bold" style="color: white">
+            🔒 IS DOGE STORM SAFE?
+          </span>
+          <span class="text-2xl" id="icon-2">+</span>
+        </button>
+        <div class="accordion-content px-6 pb-6" id="content-2">
+          <p class="text-gray-100" style="font-size: 22px;">
+            Yes! Liquidity is locked, contract audited, and there is 0% buy/sell
+            tax. Security and transparency are our top priorities.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="bg-gray-900 bg-opacity-50 border border-yellow-500 rounded-lg">
+        <button
+          class="w-full p-6 text-left flex justify-between items-center"
+          onclick="toggleAccordion(3)"
+        >
+          <span class="text-lg font-bold" style="color: white">
+            🤖 WHAT IS THE AI AGENT?
+          </span>
+          <span class="text-2xl" id="icon-3">+</span>
+        </button>
+        <div class="accordion-content px-6 pb-6" id="content-3">
+          <p class="text-gray-100" style="font-size: 22px;">
+            Doge Storm’s AI Agent provides automated features, smart transaction
+            routing, and community management tools — the future of meme coins!
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="bg-gray-900 bg-opacity-50 border border-green-500 rounded-lg">
+        <button
+          class="w-full p-6 text-left flex justify-between items-center"
+          onclick="toggleAccordion(4)"
+        >
+          <span class="text-lg font-bold" style="color: white">
+            🚀 WHEN MOON?
+          </span>
+          <span class="text-2xl" id="icon-4">+</span>
+        </button>
+        <div class="accordion-content px-6 pb-6" id="content-4">
+          <p class="text-gray-100" style="font-size: 22px;">
+            SOON! With an active community, AI-powered utilities, and strong
+            marketing — we’re headed straight to the moon! 🌙
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+ 
+      <!-- Community Section -->
+      <section class="community-wrapper">
+        <h2 class="section-heading">JOIN THE PACK!</h2>
+        <div class="social-buttons">
+          <button class="social-btn">🐦 TWITTER</button>
+          <button class="social-btn">💬 TELEGRAM</button>
+          <button class="social-btn">📱 DISCORD</button>
+          <button class="social-btn">📺 YOUTUBE</button>
+        </div>
+      </section>
+      <!-- Footer -->
+      <footer class="footer-section">
+        <div class="footer-content">
+          <div class="footer-logo">🐕 DOGE STORM 🐕</div>
+          <p class="footer-text">The Storm is Here. Join the Revolution!</p>
+          <p class="footer-text">
+            © 2024 DOGE STORM. ALL RIGHTS RESERVED. TO THE MOON! 🚀
+          </p>
+        
+        </div>
+      </footer>
+    </div>
+    <script>
+  function toggleAccordion(index) {
+    const content = document.getElementById(`content-${index}`);
+    const icon = document.getElementById(`icon-${index}`);
+
+    if (content.style.display === "block") {
+      content.style.display = "none";
+      icon.textContent = "+";
+    } else {
+      content.style.display = "block";
+      icon.textContent = "-";
+    }
+  }
+
+  // Hide all accordion contents by default
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".accordion-content").forEach((el) => {
+      el.style.display = "none";
+    });
+  });
+</script>
+
+    <script>
+      const defaultConfig = {
+        primary_color: "#ff6b35",
+        secondary_color: "#ffd93d",
+        accent_color: "#4ecdc4",
+        card_color: "#6a4c93",
+        text_color: "#1a1a1a",
+        font_family: "Comic Sans MS",
+        font_size: 16,
+        main_headline: "THE STORM IS HERE! ⚡",
+        tagline: "AI-Powered Meme Coin on BSC Network",
+        about_heading: "WHAT IS DOGE STORM?",
+        about_text:
+          "Doge Storm is the ultimate meme coin powered by AI agents and backed by the legendary Doge community. Running on Binance Smart Chain (BEP-20), we combine lightning-fast transactions with cutting-edge technology. Much wow. Very storm. To the moon! 🚀",
+        tokenomics_heading: "TOKENOMICS",
+        token_supply: "1 BILLION",
+        token_liquidity: "LOCKED",
+        token_burned: "50%",
+        roadmap_heading: "ROADMAP TO THE MOON",
+        phase_1_title: "LAUNCH PHASE",
+        phase_1_desc:
+          "✅ Token Launch on BSC • ✅ Website & Social Media • ✅ Community Building • ✅ Initial Marketing Campaign • ✅ 10,000 Holders Milestone",
+        phase_2_title: "GROWTH PHASE",
+        phase_2_desc:
+          "🔄 AI Agent Integration • 🔄 DEX Listings (PancakeSwap) • 🔄 CoinGecko & CMC Listing • 🔄 Influencer Partnerships • 🔄 50,000 Holders Milestone",
+        phase_3_title: "MOON PHASE",
+        phase_3_desc:
+          "🌙 Major CEX Listings • 🌙 NFT Collection Launch • 🌙 Doge Storm Merchandise • 🌙 Global Marketing Campaign • 🌙 100,000+ Holders • 🌙 TO THE MOON! 🚀",
+      };
+
+      function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+
+          document
+            .querySelectorAll(".nav-button")
+            .forEach((btn) => btn.classList.remove("active"));
+          event.target.classList.add("active");
+        }
+      }
+
+      async function onConfigChange(config) {
+        const baseFontStack = "Arial Black, sans-serif";
+        const customFont = config.font_family || defaultConfig.font_family;
+        const baseSize = config.font_size || defaultConfig.font_size;
+
+        const heroWrapper = document.querySelector(".hero-wrapper");
+        const aboutWrapper = document.querySelector(".about-wrapper");
+        const tokenomicsWrapper = document.querySelector(".tokenomics-wrapper");
+        const featuresWrapper = document.querySelector(".features-wrapper");
+        const roadmapWrapper = document.querySelector(".roadmap-wrapper");
+        const communityWrapper = document.querySelector(".community-wrapper");
+        const faqWrapper = document.querySelector(".faq-wrapper");
+
+        heroWrapper.style.background =
+          config.primary_color || defaultConfig.primary_color;
+        aboutWrapper.style.background =
+          config.secondary_color || defaultConfig.secondary_color;
+        tokenomicsWrapper.style.background =
+          config.card_color || defaultConfig.card_color;
+        featuresWrapper.style.background =
+          config.accent_color || defaultConfig.accent_color;
+        roadmapWrapper.style.background =
+          config.primary_color || defaultConfig.primary_color;
+        communityWrapper.style.background =
+          config.secondary_color || defaultConfig.secondary_color;
+        faqWrapper.style.background =
+          config.card_color || defaultConfig.card_color;
+
+        document.querySelectorAll(".cta-main").forEach((btn, index) => {
+          if (index === 0) {
+            btn.style.background =
+              config.accent_color || defaultConfig.accent_color;
+          }
+        });
+
+        document.querySelectorAll(".token-value").forEach((val) => {
+          val.style.color = config.primary_color || defaultConfig.primary_color;
+        });
+
+        document.querySelectorAll(".faq-question").forEach((q) => {
+          q.style.color = config.primary_color || defaultConfig.primary_color;
+        });
+
+        document.querySelectorAll(".phase-title").forEach((t) => {
+          t.style.color = config.primary_color || defaultConfig.primary_color;
+        });
+
+        document.querySelector(".brand-name").style.color =
+          config.primary_color || defaultConfig.primary_color;
+        document.querySelectorAll(".nav-button").forEach((btn) => {
+          btn.style.borderColor =
+            config.primary_color || defaultConfig.primary_color;
+        });
+
+        document.getElementById("mainHeadline").textContent =
+          config.main_headline || defaultConfig.main_headline;
+        document.getElementById("tagline").textContent =
+          config.tagline || defaultConfig.tagline;
+        document.getElementById("aboutHeading").textContent =
+          config.about_heading || defaultConfig.about_heading;
+        document.getElementById("aboutText").textContent =
+          config.about_text || defaultConfig.about_text;
+        document.getElementById("tokenomicsHeading").textContent =
+          config.tokenomics_heading || defaultConfig.tokenomics_heading;
+        document.getElementById("tokenSupply").textContent =
+          config.token_supply || defaultConfig.token_supply;
+        document.getElementById("tokenLiquidity").textContent =
+          config.token_liquidity || defaultConfig.token_liquidity;
+        document.getElementById("tokenBurned").textContent =
+          config.token_burned || defaultConfig.token_burned;
+        document.getElementById("roadmapHeading").textContent =
+          config.roadmap_heading || defaultConfig.roadmap_heading;
+        document.getElementById("phase1Title").textContent =
+          config.phase_1_title || defaultConfig.phase_1_title;
+        document.getElementById("phase1Desc").textContent =
+          config.phase_1_desc || defaultConfig.phase_1_desc;
+        document.getElementById("phase2Title").textContent =
+          config.phase_2_title || defaultConfig.phase_2_title;
+        document.getElementById("phase2Desc").textContent =
+          config.phase_2_desc || defaultConfig.phase_2_desc;
+        document.getElementById("phase3Title").textContent =
+          config.phase_3_title || defaultConfig.phase_3_title;
+        document.getElementById("phase3Desc").textContent =
+          config.phase_3_desc || defaultConfig.phase_3_desc;
+
+        document.getElementById(
+          "mainHeadline"
+        ).style.fontFamily = `${customFont}, ${baseFontStack}`;
+        document.getElementById(
+          "tagline"
+        ).style.fontFamily = `${customFont}, ${baseFontStack}`;
+        document
+          .querySelectorAll(".section-heading, .section-white-heading")
+          .forEach(
+            (el) => (el.style.fontFamily = `${customFont}, ${baseFontStack}`)
+          );
+        document.getElementById(
+          "aboutText"
+        ).style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+        document.getElementById("mainHeadline").style.fontSize = `${
+          baseSize * 3.125
+        }px`;
+        document.getElementById("tagline").style.fontSize = `${baseSize * 2}px`;
+        document
+          .querySelectorAll(".section-heading, .section-white-heading")
+          .forEach((el) => (el.style.fontSize = `${baseSize * 2.1875}px`));
+        document.getElementById("aboutText").style.fontSize = `${
+          baseSize * 1.5
+        }px`;
+        document
+          .querySelectorAll(".cta-main")
+          .forEach((btn) => (btn.style.fontSize = `${baseSize * 1.8}px`));
+      }
+
+      function mapToCapabilities(config) {
+        return {
+          recolorables: [
+            {
+              get: () => config.primary_color || defaultConfig.primary_color,
+              set: (value) => {
+                if (window.elementSdk) {
+                  window.elementSdk.config.primary_color = value;
+                  window.elementSdk.setConfig({ primary_color: value });
+                }
+              },
+            },
+            {
+              get: () =>
+                config.secondary_color || defaultConfig.secondary_color,
+              set: (value) => {
+                if (window.elementSdk) {
+                  window.elementSdk.config.secondary_color = value;
+                  window.elementSdk.setConfig({ secondary_color: value });
+                }
+              },
+            },
+            {
+              get: () => config.accent_color || defaultConfig.accent_color,
+              set: (value) => {
+                if (window.elementSdk) {
+                  window.elementSdk.config.accent_color = value;
+                  window.elementSdk.setConfig({ accent_color: value });
+                }
+              },
+            },
+            {
+              get: () => config.card_color || defaultConfig.card_color,
+              set: (value) => {
+                if (window.elementSdk) {
+                  window.elementSdk.config.card_color = value;
+                  window.elementSdk.setConfig({ card_color: value });
+                }
+              },
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                if (window.elementSdk) {
+                  window.elementSdk.config.text_color = value;
+                  window.elementSdk.setConfig({ text_color: value });
+                }
+              },
+            },
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.config.font_family = value;
+                window.elementSdk.setConfig({ font_family: value });
+              }
+            },
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.config.font_size = value;
+                window.elementSdk.setConfig({ font_size: value });
+              }
+            },
+          },
+        };
+      }
+
+      function mapToEditPanelValues(config) {
+        return new Map([
+          [
+            "main_headline",
+            config.main_headline || defaultConfig.main_headline,
+          ],
+          ["tagline", config.tagline || defaultConfig.tagline],
+          [
+            "about_heading",
+            config.about_heading || defaultConfig.about_heading,
+          ],
+          ["about_text", config.about_text || defaultConfig.about_text],
+          [
+            "tokenomics_heading",
+            config.tokenomics_heading || defaultConfig.tokenomics_heading,
+          ],
+          ["token_supply", config.token_supply || defaultConfig.token_supply],
+          [
+            "token_liquidity",
+            config.token_liquidity || defaultConfig.token_liquidity,
+          ],
+          ["token_burned", config.token_burned || defaultConfig.token_burned],
+          [
+            "roadmap_heading",
+            config.roadmap_heading || defaultConfig.roadmap_heading,
+          ],
+          [
+            "phase_1_title",
+            config.phase_1_title || defaultConfig.phase_1_title,
+          ],
+          ["phase_1_desc", config.phase_1_desc || defaultConfig.phase_1_desc],
+          [
+            "phase_2_title",
+            config.phase_2_title || defaultConfig.phase_2_title,
+          ],
+          ["phase_2_desc", config.phase_2_desc || defaultConfig.phase_2_desc],
+          [
+            "phase_3_title",
+            config.phase_3_title || defaultConfig.phase_3_title,
+          ],
+          ["phase_3_desc", config.phase_3_desc || defaultConfig.phase_3_desc],
+        ]);
+      }
+
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues,
+        });
+      }
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'9a50c26d93e04162',t:'MTc2NDIzNzQyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
