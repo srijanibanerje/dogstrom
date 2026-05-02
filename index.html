@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./fav.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Doge Storm - Complete Website</title>
     <script src="/_sdk/element_sdk.js"></script>
     <style>
@@ -17,8 +19,8 @@
       * {
         box-sizing: border-box;
       }
-      #mobileMenu{
-         background: rgba(21, 21, 21, 0.3);
+      #mobileMenu {
+        background: rgba(21, 21, 21, 0.3);
         backdrop-filter: blur(10px);
         border-radius: 15px;
       }
@@ -704,22 +706,20 @@
           <!-- MOBILE MENU -->
           <div
             id="mobileMenu"
-            class="mobile-link hidden flex flex-col mt-2 space-y-4 md:hidden  text-dark"
+            class="mobile-link hidden flex flex-col mt-2 space-y-4 md:hidden text-dark"
           >
-            <a
-              href="#home"
-              class="mobile-link text-dark  hover:text-cyan-400 "
+            <a href="#home" class="mobile-link text-dark hover:text-cyan-400"
               >HOME</a
             >
-            <a href="#about" class="mobile-link hover:text-cyan-400 "
-              >ABOUT</a
-            >
+            <a href="#about" class="mobile-link hover:text-cyan-400">ABOUT</a>
             <a
               href="#features"
               class="mobile-link hover:text-cyan-400 transition"
               >FEATURES</a
             >
-            <a href="#contact" class="mobile-link hover:text-cyan-400 transition"
+            <a
+              href="#contact"
+              class="mobile-link hover:text-cyan-400 transition"
               >CONTACT</a
             >
           </div>
@@ -747,7 +747,7 @@
             AI-Powered Meme Coin on BSC Network
           </p>
           <button
-            class="cta-main w-25 mt-6 px-6 py-3 text-white font-semibold rounded-lg  hover:scale-110 transition-transform text-sm sm:text-base md:text-lg"
+            class="cta-main w-25 mt-6 px-6 py-3 text-white font-semibold rounded-lg hover:scale-110 transition-transform text-sm sm:text-base md:text-lg"
           >
             BUY NOW
           </button>
@@ -925,30 +925,30 @@
               </div>
             </div>
 
-      <!-- FAQ 5 -->
-      <div class="bg-gray-900 bg-opacity-50 border border-green-500 rounded-lg">
-        <button
-          class="w-full p-6 text-left flex justify-between items-center"
-          onclick="toggleAccordion(4)"
-        >
-          <span class="text-lg font-bold" style="color: white">
-            🚀 WHEN MOON?
-          </span>
-          <span class="text-2xl text-white" id="icon-4">+</span>
-        </button>
-        <div class="accordion-content px-6 pb-6" id="content-4">
-          <p class="text-gray-100" style="font-size: 22px;">
-            SOON! With an active community, AI-powered utilities, and strong
-            marketing — we’re headed straight to the moon! 🌙
-          </p>
+            <!-- FAQ 5 -->
+            <div
+              class="bg-gray-900 bg-opacity-50 border border-green-500 rounded-lg"
+            >
+              <button
+                class="w-full p-6 text-left flex justify-between items-center"
+                onclick="toggleAccordion(4)"
+              >
+                <span class="text-lg font-bold" style="color: white">
+                  🚀 WHEN MOON?
+                </span>
+                <span class="text-2xl text-white" id="icon-4">+</span>
+              </button>
+              <div class="accordion-content px-6 pb-6" id="content-4">
+                <p class="text-gray-100" style="font-size: 22px">
+                  SOON! With an active community, AI-powered utilities, and
+                  strong marketing — we’re headed straight to the moon! 🌙
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-    </div>
-  </div>
-</section>
-
- 
       <!-- Community Section -->
       <section class="community-wrapper" id="contact">
         <h2 class="section-heading">JOIN THE PACK!</h2>
@@ -1124,20 +1124,17 @@
         document.getElementById("phase3Desc").textContent =
           config.phase_3_desc || defaultConfig.phase_3_desc;
 
-        document.getElementById(
-          "mainHeadline"
-        ).style.fontFamily = `${customFont}, ${baseFontStack}`;
-        document.getElementById(
-          "tagline"
-        ).style.fontFamily = `${customFont}, ${baseFontStack}`;
+        document.getElementById("mainHeadline").style.fontFamily =
+          `${customFont}, ${baseFontStack}`;
+        document.getElementById("tagline").style.fontFamily =
+          `${customFont}, ${baseFontStack}`;
         document
           .querySelectorAll(".section-heading, .section-white-heading")
           .forEach(
-            (el) => (el.style.fontFamily = `${customFont}, ${baseFontStack}`)
+            (el) => (el.style.fontFamily = `${customFont}, ${baseFontStack}`),
           );
-        document.getElementById(
-          "aboutText"
-        ).style.fontFamily = `${customFont}, ${baseFontStack}`;
+        document.getElementById("aboutText").style.fontFamily =
+          `${customFont}, ${baseFontStack}`;
 
         document.getElementById("mainHeadline").style.fontSize = `${
           baseSize * 3.125
@@ -1332,12 +1329,11 @@
       });
     </script>
     <script>
-  document.querySelectorAll("#mobileMenu .mobile-link").forEach(link => {
-    link.addEventListener("click", () => {
-      document.getElementById("mobileMenu").classList.add("hidden");
-    });
-  });
-</script>
-
+      document.querySelectorAll("#mobileMenu .mobile-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.getElementById("mobileMenu").classList.add("hidden");
+        });
+      });
+    </script>
   </body>
 </html>
