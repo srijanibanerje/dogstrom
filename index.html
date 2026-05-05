@@ -745,11 +745,34 @@
           >
             AI-Powered Meme Coin on BSC Network
           </p>
-          <button
-            class="cta-main w-25 mt-6 px-6 py-3 text-white font-semibold rounded-lg hover:scale-110 transition-transform text-sm sm:text-base md:text-lg"
-          >
-            BUY NOW
-          </button>
+         <div class="flex items-center justify-center gap-3 mb-4">
+  <!-- Contract Address Box -->
+  <h3 class="text-white font-semibold" style="font-size: 23px;">Contract Address:</h3>
+  <div class="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg text-sm sm:text-base md:text-lg font-mono">
+    <span id="contractAddress">0xF784F7B71b8B36CF4128616b1E216d35d175304d</span>
+  </div>
+
+  <!-- Copy Icon -->
+  <button onclick="copyAddress()" class="p-2 rounded-lg bg-gray-600 hover:bg-gray-700 transition">
+    📋
+  </button>
+</div>
+
+<!-- Buy Button -->
+<button
+  class="cta-main w-25 mt-6 px-6 py-3 text-white font-semibold rounded-lg hover:scale-110 transition-transform text-sm sm:text-base md:text-lg"
+>
+  BUY NOW
+</button>
+
+<script>
+  function copyAddress() {
+    const address = document.getElementById("contractAddress").innerText;
+    navigator.clipboard.writeText(address).then(() => {
+      alert("Address copied!");
+    });
+  }
+</script>
         </div>
       </section>
 
